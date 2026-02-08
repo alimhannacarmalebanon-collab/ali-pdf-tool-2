@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Carma | PDF Master Pro</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="sidebar">
+        <div class="brand-container">
+            <div class="logo-text">
+                <span class="company-name">CARMA</span>
+                <span class="app-subtext">PDF Master Pro</span>
+            </div>
+        </div>
+        <nav>
+            <button id="nav-organizer" class="nav-btn active">🔧 Organize & Reorder</button>
+            <button id="nav-splitter" class="nav-btn">✂️ Double-Page Splitter</button>
+            <button id="nav-converter" class="nav-btn">🖼️ PDF to JPEG (ZIP)</button>
+        </nav>
+        <div class="sidebar-footer">
+            <img src="carma-logo.png" class="footer-company-logo" alt="Carma Logo">
+            <div class="footer-credits">
+                <p class="dev-name">Developed by Ali</p>
+                <p class="copyright">© 2026 Carma Internal System</p>
+            </div>
+        </div>
+    </div>
+
+    <main class="main-content">
+        <section id="tool-organizer" class="tool-section">
+            <div class="tool-header">
+                <h2>Page Organizer</h2>
+                <div class="actions">
+                    <button id="select-all-org" class="btn secondary">✅ Select All</button>
+                    <button id="deselect-all-org" class="btn secondary">❌ Deselect</button>
+                    <button id="delete-selected-btn" class="btn secondary danger">🗑️ Delete Selected</button>
+                    <div class="divider"></div>
+                    <button id="add-btn" class="btn secondary">➕ Add Files</button>
+                    <button id="reverse-btn" class="btn secondary">🔄 Reverse All</button>
+                    <button id="save-pdf-btn" class="btn primary">💾 Save PDF</button>
+                </div>
+            </div>
+            <div id="drop-zone" class="upload-area">
+                <div class="icon">📁</div>
+                <p>Upload PDF <br><small>Stays active in background • 200MB+ Support</small></p>
+                <input type="file" id="file-org" accept=".pdf" hidden multiple>
+            </div>
+            <div id="pages-grid" class="pages-grid"></div>
+        </section>
+
+        <section id="tool-splitter" class="tool-section" style="display:none">
+            <div class="tool-header">
+                <h2>Double-Page Splitter</h2>
+                <div class="actions">
+                    <button id="split-all-btn" class="btn secondary" style="display:none">✅ Select All</button>
+                    <button id="split-none-btn" class="btn secondary" style="display:none">❌ Deselect All</button>
+                    <select id="split-direction">
+                        <option value="rtl">Arabic (RTL)</option>
+                        <option value="ltr">English (LTR)</option>
+                    </select>
+                    <button id="split-selected-btn" class="btn primary">✂️ Split & Save</button>
+                </div>
+            </div>
+            <div id="split-upload-zone" class="upload-area">
+                <div class="icon">📖</div>
+                <p>Upload spreads. Processing continues even if you switch tabs.</p>
+                <input type="file" id="file-split" accept=".pdf" hidden>
+            </div>
+            <div id="splitter-grid" class="pages-grid"></div>
+        </section>
+
+        <section id="tool-converter" class="tool-section" style="display:none">
+            <div class="tool-header"><h2>PDF to JPEG Converter</h2></div>
+            <div class="upload-area" id="conv-upload-zone">
+                <div class="icon">🖼️</div>
+                <p>Upload PDF. Optimized high-speed background export.</p>
+                <input type="file" id="file-conv" accept=".pdf" hidden>
+            </div>
+        </section>
+    </main>
+
+    <div id="loader" class="loader" style="display:none">
+        <div class="spinner"></div>
+        <p id="loader-text">Ali's System Processing...</p>
+        <div class="progress-container"><div id="progress-bar" class="progress-bar"></div></div>
+    </div>
+
+    <!-- Background Audio Trick -->
+    <audio id="heartbeat" loop><source src="data:audio/wav;base64,UklGRigAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQQAAAAAAA==" type="audio/wav"></audio>
+
+    <script src="libs/jszip.min.js"></script>
+    <script src="libs/pdf-lib.min.js"></script>
+    <script src="libs/pdf.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
